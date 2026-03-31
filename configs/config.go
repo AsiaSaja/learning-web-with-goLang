@@ -18,11 +18,15 @@ type Config struct {
 }
 
 func LoadConfig() *Config {
+	//variable untuk check apakah credentials .env ada atau tidak
 	err := godotenv.Load()
+
+	//jika tidak ada kirim warning via log
 	if err != nil {
 		log.Println("Warning: .env not found, using environment variables")
 	}
 
+	//jika tidak ada credentials dari .env menggunakan default credentials
 	return &Config{
 		AppPort:    getEnv("APP_PORT", "8080"),
 		DBHost:     getEnv("DB_HOST", "localhost"),
