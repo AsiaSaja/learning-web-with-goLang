@@ -1,18 +1,15 @@
 package main
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/luqm4n-Al/go-web/configs"
 	"github.com/luqm4n-Al/go-web/internal/database"
-	"github.com/luqm4n-Al/go-web/internal/model"
-	"github.com/luqm4n-Al/go-web/internal/repository"
 )
 
 func main() {
 	//load config
-	cfg := configs.LoadConfig() 
+	cfg := configs.LoadConfig()
 
 	//connect database
 	db := database.NewPostgreDB(cfg)
